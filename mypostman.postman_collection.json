@@ -1,0 +1,62 @@
+{
+	"info": {
+		"_postman_id": "0497fe7f-86dd-40ac-91d1-9320537bb178",
+		"name": "mypostman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "24418025"
+	},
+	"item": [
+		{
+			"name": "myrequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"是否登录成功\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"// 判断 返回内容 是否包含 某个字符串\r",
+							"pm.test(\"是否有任务名称语句\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"任务名称\");\r",
+							"});\r",
+							"// 判断 返回内容 是否等于 某个字符串\r",
+							"pm.test(\"body是否等于登录成功\", function () {\r",
+							"    pm.response.to.have.body(\"{\\\"msg\\\":\\\"登录成功\\\",\\\"code\\\":200}\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://119.29.62.104:8080/project/prj_task/?prj_id=1",
+					"protocol": "http",
+					"host": [
+						"119",
+						"29",
+						"62",
+						"104"
+					],
+					"port": "8080",
+					"path": [
+						"project",
+						"prj_task",
+						""
+					],
+					"query": [
+						{
+							"key": "prj_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
